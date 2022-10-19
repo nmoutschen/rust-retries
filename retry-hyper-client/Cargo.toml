@@ -5,8 +5,14 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["rand"]
+rand = ["dep:rand"]
+
+
 [dependencies]
 hyper = { version = "0.14.20", features = ["client", "http1", "http2"] }
 hyper-rustls = { version = "0.23.0", features = ["http2"] }
+rand = { version = "0.8.5", optional = true }
 tokio = { version = "1.21.2", features = ["full"] }
 tower = { version = "0.4.13", features = ["retry", "util"] }
